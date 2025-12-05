@@ -1,0 +1,48 @@
+{
+    "training": {
+        "base": "remixmatch",
+        "method": "ours",
+        "epochs": 500,
+        "val_iteration": 500,
+        "device": "cuda",
+        "tau": 0.95,
+        "T": 0.5,
+        "T_prop": 0.5,
+        "mu": 3,
+        "lambda_p": 0.1,
+        "lambda_u": 0.5,
+        "lambda_u_mixed": 1.5,
+        "lambda_r": 0.5,
+        "batch_size": 64,
+        "manualSeed": 0,
+        "ema_decay": 0.999
+    },
+    "model": {
+        "name": "wideresnet",
+        "depth": 28,
+        "width": 2,
+        "wdecay": 5e-4
+    },
+    "dataset": {
+        "name": "cifar10",
+        "num_class": 10,
+        "label_ratio": 2,
+        "imb_ratio": 10,
+        "path": "./data",
+        "imbalancetype": "long"
+    },
+    "optimizer": {
+        "name": "SGD",
+        "lr": 0.03,
+        "momentum": 0.9,
+        "weight_decay": 5e-4,
+        "nesterov": true
+    },
+    "scheduler": {
+        "name": "cosine",
+        "num_warmup_steps": 0,
+        "num_cycles": 0.4375
+    },
+    "output_dir": "./results"
+}
+
